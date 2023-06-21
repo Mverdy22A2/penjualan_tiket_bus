@@ -1,6 +1,6 @@
 # ER-D
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/dd0c266b-b4e5-42a2-8cd6-a8bb45248f6b)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/55aa68fc-90cc-4647-b6e0-ce03518dc49c)
 
 ## table armada
 
@@ -9,7 +9,7 @@
     nama_armada VARCHAR(255)
     );
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/84c902b0-495d-4136-b3f4-f748c0762480)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/53e3445a-204f-48bb-8bb5-e03de077e3df)
 
 ## table jadwal berangkat
 
@@ -21,7 +21,7 @@
     FOREIGN KEY (armada_id) REFERENCES Armada(armada_id)
     );
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/422b1db3-0121-43f1-807d-6b7a793cdafc)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/dd4bffa0-3997-4dd3-a484-1a3298fb739b)
 
 ## table penumpang
 
@@ -33,7 +33,7 @@
     posisi_tempat_duduk VARCHAR(10)
     );
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/67ef10ed-715a-45c0-b884-8d360881d3bb)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/74c10f3a-67ae-4669-95b1-93e426b78bc8)
 
 ## table transaksi
 
@@ -47,7 +47,7 @@
     FOREIGN KEY (penumpang_id) REFERENCES Penumpang(penumpang_id)
     );
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/85e983cd-51f5-44dd-8559-4858e4aa45d2)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/d560d333-b783-464c-ba81-58079c48bd7c)
 
 # SQL CRUD
 
@@ -66,7 +66,7 @@
     -- Delete
     DELETE FROM Armada WHERE armada_id = 2;
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/6476e784-828e-4c3e-9d14-e2797fc85570)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/1f990b41-55f0-43a4-8f4b-effbe97d6d02)
 
 ## 2. jadwalberangkat
 
@@ -85,7 +85,7 @@
     -- Delete
     DELETE FROM JadwalBerangkat WHERE jadwal_id = 2;
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/9b03a6a0-0e21-4eaf-b3f5-5e9b99d273d7)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/0b0ba804-2f37-47b0-964c-23e50bcb5c0f)
 
 ## 3. penumpang
 
@@ -104,7 +104,7 @@
         -- Delete
         DELETE FROM Penumpang WHERE penumpang_id = 2;
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/61947dea-8d7e-407b-a391-a03e378441e8)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/44c8ca17-0737-4ed5-ba8b-d37962877297)
 
 ## 4. transaksi
 
@@ -123,7 +123,7 @@
         -- Delete
         DELETE FROM Transaksi WHERE transaksi_id = 2;
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/e7bb6c88-e74d-4e40-9a28-f257427980bd)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/fd7d8086-4f2b-41b1-b996-2f1e9b35f07d)
 
 # SQL JOIN
 
@@ -136,4 +136,4 @@
         JOIN Penumpang p ON t.penumpang_id = p.penumpang_id;
 
 
-![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/e3240d5d-83f3-4db9-9cd5-acd95f83bc43)
+![image](https://github.com/verz666/penjualan_tiket_bus/assets/115523263/3cbe7587-3182-49bd-ae90-fa810f0ed64a)
