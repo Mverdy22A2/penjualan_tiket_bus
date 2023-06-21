@@ -1,0 +1,123 @@
+--------------------------------------------------------------------------------------------------
+
+-- Tabel untuk informasi pelanggan
+CREATE TABLE Customers (
+  customer_id INT PRIMARY KEY,
+  name VARCHAR(255),
+  address VARCHAR(255),
+  phone_number VARCHAR(20)
+);
+
+-- Tabel untuk informasi bus
+CREATE TABLE Buses (
+  bus_id INT PRIMARY KEY,
+  bus_number VARCHAR(10),
+  capacity INT
+);
+
+-- Tabel untuk informasi trayek
+CREATE TABLE Routes (
+  route_id INT PRIMARY KEY,
+  origin VARCHAR(255),
+  destination VARCHAR(255),
+  distance INT
+);
+
+-- Tabel untuk informasi tiket
+CREATE TABLE Tickets (
+  ticket_id INT PRIMARY KEY,
+  customer_id INT,
+  route_id INT,
+  bus_id INT,
+  date_of_travel DATE,
+  seat_number INT,
+  fare DECIMAL(10,2),
+  FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+  FOREIGN KEY (route_id) REFERENCES Routes(route_id),
+  FOREIGN KEY (bus_id) REFERENCES Buses(bus_id)
+);
+
+-------------------------------------------------------------------------------------------------
+
+-- Menambahkan data pelanggan
+INSERT INTO Customers (customer_id, name, address, phone_number)
+VALUES (1, 'John Doe', '123 Main Street', '123-456-7890');
+
+-- Menambahkan data bus
+INSERT INTO Buses (bus_id, bus_number, capacity)
+VALUES (1, 'BUS001', 50);
+
+-- Menambahkan data trayek
+INSERT INTO Routes (route_id, origin, destination, distance)
+VALUES (1, 'City A', 'City B', 200);
+
+-- Menambahkan data tiket
+INSERT INTO Tickets (ticket_id, customer_id, route_id, bus_id, date_of_travel, seat_number, fare)
+VALUES (1, 1, 1, 1, '2023-06-20', 10, 50.00);
+
+--------------------------------------------------------------------------------------------------
+
+-- Mengambil semua data pelanggan
+SELECT * FROM Customers;
+
+-- Mengambil semua data bus
+SELECT * FROM Buses;
+
+-- Mengambil semua data trayek
+SELECT * FROM Routes;
+
+-- Mengambil semua data tiket
+SELECT * FROM Tickets;
+
+---------------------------------------------------------------------------------------------------
+
+-- Mengupdate data pelanggan dengan customer_id = 1
+UPDATE Customers
+SET address = '456 Oak Street'
+WHERE customer_id = 1;
+
+-- Mengupdate data tiket dengan ticket_id = 1
+UPDATE Tickets
+SET seat_number = 15,
+    fare = 55.00
+WHERE ticket_id = 1;
+
+------------------------------------------------------------------------------------------------------
+
+-- Menghapus data pelanggan dengan customer_id = 1
+DELETE FROM Customers
+WHERE customer_id = 1;
+
+-- Menghapus data tiket dengan ticket_id = 1
+DELETE FROM Tickets
+WHERE ticket_id = 1;
+
+-------------------------------------------------------------------------------------------------------
+
+-- Menggabungkan data tiket dengan informasi pelanggan
+SELECT Tickets.ticket_id, Customers.name, Tickets.seat_number
+FROM Tickets
+INNER JOIN Customers ON Tickets.customer_id = Customers.customer_id;
+
+--------------------------------------------------------------------------------------------------------
+
+-- Menggabungkan data tiket dengan informasi pelanggan (termasuk tiket yang tidak memiliki pelanggan terkait)
+SELECT Tickets.ticket_id, Customers.name, Tickets.seat_number
+FROM Tickets
+LEFT JOIN Customers ON Tickets.customer_id = Customers.customer_id;
+
+--------------------------------------------------------------------------------------------------------
+
+-- Menggabungkan data pelanggan dengan informasi tiket (termasuk pelanggan yang tidak memiliki tiket terkait)
+SELECT Tickets.ticket_id, Customers.name, Tickets.seat_number
+FROM Tickets
+RIGHT JOIN Customers ON Tickets.customer_id = Customers.customer_id;
+
+---------------------------------------------------------------------------------------------------------
+
+-- Menggabungkan data tiket dengan informasi pelanggan (termasuk tiket dan pelanggan yang tidak memiliki kaitan)
+SELECT Tickets.ticket_id, Customers.name, Tickets.seat_number
+FROM Tickets
+FULL JOIN Customers ON Tickets.customer_id = Customers.customer_id;
+
+----------------------------------------------------------------------------------------------------------
